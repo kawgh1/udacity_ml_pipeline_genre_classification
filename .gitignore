@@ -145,6 +145,7 @@ env.bak/
 venv.bak/
 
 .idea/
+wandb/
 
 # Spyder project settings
 .spyderproject
