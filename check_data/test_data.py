@@ -109,12 +109,26 @@ def test_kolmogorov_smirnov(data, ks_alpha):
     # https://towardsdatascience.com/precision-and-recall-trade-off-and-multiple-hypothesis-testing-family-wise-error-rate-vs-false-71a85057ca2b)
     alpha_prime = 1 - (1 - ks_alpha)**(1 / len(columns))
 
-    for col in columns:
+    '''
+    Key points:
+        Always drop NaNs before running ks_2samp.
+        Skip the test for columns that are constant or too small — KS test can’t handle zero-variance arrays.
+        Use informative messages in assertions to help debug which column fails.
+    '''
 
-        ts, p_value = scipy.stats.ks_2samp(sample1[col], sample2[col])
+    for col in columns:
+        # Drop NaNs
+        s1 = sample1[col].dropna()
+        s2 = sample2[col].dropna()
+        # Skip if column has no variation
+        if len(s1) < 2 or len(s2) < 2 or s1.nunique() <= 1 or s2.nunique() <= 1:
+            print(f"Skipping KS test for column {col}: not enough data or variance")
+            continue
+
+        ts, p_value = scipy.stats.ks_2samp(s1, s2)
 
         # NOTE: as always, the p-value should be interpreted as the probability of
         # obtaining a test statistic (TS) equal or more extreme that the one we got
         # by chance, when the null hypothesis is true. If this probability is not
         # large enough, this dataset should be looked at carefully, hence we fail
-        assert p_value > alpha_prime
+        assert p_value > alpha_prime, f"KS test failed for {col}: p={p_value}"

@@ -1,0 +1,51 @@
+{
+  "os":  "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+  "python":  "CPython 3.13.12",
+  "startedAt":  "2026-02-12T12:52:17.321268Z",
+  "args":  [
+    "--input_artifact",
+    "preprocessed_data.csv:latest",
+    "--artifact_root",
+    "data",
+    "--artifact_type",
+    "segregated_data",
+    "--test_size",
+    "0.3",
+    "--random_state",
+    "42",
+    "--stratify",
+    "genre"
+  ],
+  "program":  "/Users/j/Desktop/udacity_ml_pipeline_genre_classification/segregate/run.py",
+  "codePath":  "segregate/run.py",
+  "codePathLocal":  "run.py",
+  "git":  {
+    "remote":  "git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git",
+    "commit":  "2356a92b84685532fe0ef2dbfd1ed7df7009e1dc"
+  },
+  "email":  "krseven@gmail.com",
+  "root":  "/Users/j/Desktop/udacity_ml_pipeline_genre_classification/segregate",
+  "host":  "MacBook-Pro.local",
+  "executable":  "/Users/j/miniconda3/envs/mlflow-2b05c334639a6588d5c96ec48ecc7de59f6ca254/bin/python",
+  "cpu_count":  10,
+  "cpu_count_logical":  10,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "428114595840"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "apple":  {
+    "name":  "Apple M1 Pro",
+    "ecpuCores":  2,
+    "pcpuCores":  8,
+    "gpuCores":  16,
+    "memoryGb":  16,
+    "swapTotalBytes":  "8589934592",
+    "ramTotalBytes":  "17179869184"
+  },
+  "writerId":  "kjq7hdc3pgv9ig9uciroejqq2eu8d8ym"
+}

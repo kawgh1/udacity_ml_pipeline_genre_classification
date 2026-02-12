@@ -16,12 +16,21 @@ def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
 
     # Check which steps we need to execute
-    if isinstance(config["main"]["execute_steps"], str):
-        # This was passed on the command line as a comma-separated list of steps
-        steps_to_execute = config["main"]["execute_steps"].split(",")
+    # if isinstance(config["main"]["execute_steps"], str):
+    #     # This was passed on the command line as a comma-separated list of steps
+    #     steps_to_execute = config["main"]["execute_steps"].split(",")
+    # else:
+    #     assert isinstance(config["main"]["execute_steps"], list)
+    #     steps_to_execute = config["main"]["execute_steps"]
+
+    # this project included python 3.13 which is too new
+    # ideally should use 3.10 at time of writing as MLFlow and Hydra are not fully stable together yet
+    steps_to_execute = config["main"]["execute_steps"]
+
+    if isinstance(steps_to_execute, str):
+        steps_to_execute = steps_to_execute.split(",")
     else:
-        assert isinstance(config["main"]["execute_steps"], list)
-        steps_to_execute = config["main"]["execute_steps"]
+        steps_to_execute = list(steps_to_execute)
 
     # Download step
     if "download" in steps_to_execute:
@@ -117,7 +126,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "evaluate"),
             "main",
             parameters={
-                "model_export": f"{config['random_forest_pipeline']['export_artifact']}",
+                "model_export": f"{config['random_forest_pipeline']['export_artifact']}:latest",
                 "test_data": "data_test.csv:latest",
             }
         )

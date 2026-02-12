@@ -1,38 +1,106 @@
-# Instructions
-In this exercise we are going to bring everything together in a complete ML pipeline that
-produces a trained Random Forest model.
+# Setting up the venv to run the mlflow pipeline
 
-# Preliminary step: create a repository and commit and push the starter kit
-1. Create a new GitHub repository called ``genre_classification`` in your GitHub account:
-   ![screenshot](create_github_repo_opt.gif "screenshot")
-2. Clone the repository locally:
-   ```bash
-   git clone [repository_url]
-   ```
-3. Go into the repository and copy there the starter kit, 
-   including all subdirectories:
-   ```bash
-   cd genre_classification
-   cp -r [path to the starter]/starter/* .
-   ```
-4. Add the files of the starter kit to be tracked:
-   ```bash
-   git add .
-   ```
-5. Commit and push:
-   ```bash
-   git commit -m "Starter kit" -a
-   git push
-   ```
+```bash
+# Create a virtual environment
+python3 -m venv venv
 
-# Steps to complete the exercise
+# Activate it
+source venv/bin/activate       # Linux/macOS
+# venv\Scripts\activate.bat    # Windows
 
-The starter kit contains all the steps we have previously completed, only slightly modified to 
-work better together. 
-Your task is to chain them together by completing the ``main.py`` file. Further instructions 
-are contained in the file.
+# Upgrade pip
+pip install --upgrade pip
 
-When you are done, commit and push to the repository.
+# Install dependencies
+pip install mlflow scikit-learn hydra-core omegaconf wandb
+
+# Log in to W&B
+wandb login
+
+# Run the MLflow pipeline locally
+mlflow run . --env-manager=local
+
+```
+
+wandb: Syncing run frosty-night-20
+wandb: ⭐️ View project at https://wandb.ai/krseven-j/exercise_14
+wandb: 🚀 View run at https://wandb.ai/krseven-j/exercise_14/runs/clzje4kk
+2026-02-12 07:39:54,035 Creating artifact
+2026-02-12 07:39:54,066 Logging artifact
+...
+...
+2026-02-12 07:39:58,600 Downloading artifact
+2026-02-12 07:39:59,674 Dropping duplicates
+2026-02-12 07:39:59,698 Feature engineering
+...
+...
+cachedir: .pytest_cache
+rootdir: /Users/.../Desktop/udacity_ml_pipeline_genre_classification/check_data
+collected 4 items                                                                                                                                       
+
+test_data.py::test_column_presence_and_type PASSED
+test_data.py::test_class_names PASSED
+test_data.py::test_column_ranges PASSED
+test_data.py::test_kolmogorov_smirnov PASSED
+========== 4 passed, 6 warnings in 2.56s ======
+wandb: 
+wandb: 🚀 View run polished-brook-22 at: https://wandb.ai/krseven-j/exercise_14/runs/x4f089y9
+...
+...
+wandb: Syncing run sleek-donkey-23
+wandb: ⭐️ View project at https://wandb.ai/krseven-j/exercise_14
+wandb: 🚀 View run at https://wandb.ai/krseven-j/exercise_14/runs/6bvkhdzo
+2026-02-12 07:40:12,997 Downloading and reading artifact
+2026-02-12 07:40:13,897 Splitting data into train, val and test
+2026-02-12 07:40:13,925 Uploading the train dataset to data_train.csv
+2026-02-12 07:40:14,116 Logging artifact
+2026-02-12 07:40:15,488 Uploading the test dataset to data_test.csv
+2026-02-12 07:40:15,591 Logging artifact
+...
+...
+wandb: Syncing run fast-sea-24
+wandb: ⭐️ View project at https://wandb.ai/krseven-j/exercise_14
+wandb: 🚀 View run at https://wandb.ai/krseven-j/exercise_14/runs/qr8exn5u
+2026-02-12 07:40:22,454 Downloading and reading train artifact
+2026-02-12 07:40:23,405 Extracting target from dataframe
+2026-02-12 07:40:23,407 Splitting train/val
+2026-02-12 07:40:23,427 Setting up pipeline
+2026-02-12 07:40:23,430 Fitting
+2026-02-12 07:40:33,753 Scoring
+...
+...
+wandb: Syncing run serene-brook-25
+wandb: ⭐️ View project at https://wandb.ai/krseven-j/exercise_14
+wandb: 🚀 View run at https://wandb.ai/krseven-j/exercise_14/runs/488hy8wh
+2026-02-12 07:40:45,904 Downloading and reading test artifact
+2026-02-12 07:40:46,729 Extracting target from dataframe
+2026-02-12 07:40:46,730 Downloading and reading the exported model
+wandb:   7 of 7 files downloaded.  
+2026-02-12 07:40:48,122 Scoring
+2026-02-12 07:40:48,205 Computing confusion matrix
+...
+...
+2026/02/12 07:40:49 INFO mlflow.projects: === Run (ID 'dabf439175a74693b271fcd7f764c7d9') succeeded ===
+2026/02/12 07:40:50 INFO mlflow.projects: === Run (ID '61719c7c6e774ede8a45b491f5ef8717') succeeded ===
+
+![screenshot.png](screenshot.png)
+
+Then run it for `prod`
+
+```bash
+mlflow run . --env-manager=local
+-P hydra_options="main.project_name=genre_classification_prod"
+```
+
+...
+...
+2026/02/12 07:52:55 INFO mlflow.projects: === Run (ID 'b7160d098cc2475c9d6c5a8f0900d8be') succeeded ===
+2026/02/12 07:52:55 INFO mlflow.projects: === Run (ID '867476d70f85448681fbabb08e57e816') succeeded ===
+...
+...
+
+![pipeline-deployment-graph.png](pipeline-deployment-graph.png)
+
 
 After running the pipeline successfully, go to W&B and tag the exported model as ``prod`` as
 we did in Exercise 13.
@@ -60,3 +128,5 @@ A few notes and instructions:
   ```bash
   mlflow run . -P hydra_options="main.execute_steps='download,preprocess'"
   ```
+
+

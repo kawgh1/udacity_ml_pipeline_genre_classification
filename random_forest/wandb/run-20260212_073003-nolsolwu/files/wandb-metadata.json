@@ -1,0 +1,31 @@
+{
+  "os":  "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+  "python":  "CPython 3.13.12",
+  "startedAt":  "2026-02-12T12:30:03.062028Z",
+  "args":  [
+    "--train_data",
+    "data_train.csv:latest",
+    "--model_config",
+    "/Users/j/Desktop/udacity_ml_pipeline_genre_classification/outputs/2026-02-12/07-27-38/random_forest_config.yml",
+    "--export_artifact",
+    "model_export",
+    "--random_seed",
+    "42",
+    "--val_size",
+    "0.3",
+    "--stratify",
+    "genre"
+  ],
+  "program":  "/Users/j/Desktop/udacity_ml_pipeline_genre_classification/random_forest/run.py",
+  "codePath":  "random_forest/run.py",
+  "codePathLocal":  "run.py",
+  "git":  {
+    "remote":  "git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git",
+    "commit":  "2356a92b84685532fe0ef2dbfd1ed7df7009e1dc"
+  },
+  "email":  "krseven@gmail.com",
+  "root":  "/Users/j/Desktop/udacity_ml_pipeline_genre_classification/random_forest",
+  "host":  "MacBook-Pro.local",
+  "executable":  "/Users/j/miniconda3/envs/mlflow-a3629828cd971ffe646011f938d3373bb5d5ef95/bin/python",
+  "writerId":  "ds0qaul8530slu50irweaqaxiu4pjxuq"
+}

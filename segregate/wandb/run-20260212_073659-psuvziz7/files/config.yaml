@@ -1,0 +1,61 @@
+_wandb:
+    value:
+        cli_version: 0.21.3
+        e:
+            91woxyh91f0q7be5c3kqngs96of7gpmm:
+                apple:
+                    ecpuCores: 2
+                    gpuCores: 16
+                    memoryGb: 16
+                    name: Apple M1 Pro
+                    pcpuCores: 8
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "8589934592"
+                args:
+                    - --input_artifact
+                    - preprocessed_data.csv:latest
+                    - --artifact_root
+                    - data
+                    - --artifact_type
+                    - segregated_data
+                    - --test_size
+                    - "0.3"
+                    - --random_state
+                    - "42"
+                    - --stratify
+                    - genre
+                codePath: segregate/run.py
+                codePathLocal: run.py
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "432380743680"
+                email: krseven@gmail.com
+                executable: /Users/j/miniconda3/envs/mlflow-2b05c334639a6588d5c96ec48ecc7de59f6ca254/bin/python
+                git:
+                    commit: 2356a92b84685532fe0ef2dbfd1ed7df7009e1dc
+                    remote: git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git
+                host: MacBook-Pro.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6.1-arm64-arm-64bit-Mach-O
+                program: /Users/j/Desktop/udacity_ml_pipeline_genre_classification/segregate/run.py
+                python: CPython 3.13.12
+                root: /Users/j/Desktop/udacity_ml_pipeline_genre_classification/segregate
+                startedAt: "2026-02-12T12:36:59.360937Z"
+                writerId: 91woxyh91f0q7be5c3kqngs96of7gpmm
+        m: []
+        python_version: 3.13.12
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 5
+                - 53
+            "4": 3.13.12
+            "5": 0.21.3
+            "12": 0.21.3
+            "13": darwin-arm64
