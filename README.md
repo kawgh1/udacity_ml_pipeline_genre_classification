@@ -22,6 +22,7 @@ mlflow run . --env-manager=local
 
 ```
 
+```bash
 wandb: Syncing run frosty-night-20
 wandb: ⭐️ View project at https://wandb.ai/krseven-j/exercise_14
 wandb: 🚀 View run at https://wandb.ai/krseven-j/exercise_14/runs/clzje4kk
@@ -83,6 +84,8 @@ wandb:   7 of 7 files downloaded.
 2026/02/12 07:40:49 INFO mlflow.projects: === Run (ID 'dabf439175a74693b271fcd7f764c7d9') succeeded ===
 2026/02/12 07:40:50 INFO mlflow.projects: === Run (ID '61719c7c6e774ede8a45b491f5ef8717') succeeded ===
 
+```
+
 ![screenshot.png](screenshot.png)
 
 Then run it for `prod`
@@ -92,16 +95,23 @@ mlflow run . --env-manager=local
 -P hydra_options="main.project_name=genre_classification_prod"
 ```
 
+```bash
 ...
 ...
 2026/02/12 07:52:55 INFO mlflow.projects: === Run (ID 'b7160d098cc2475c9d6c5a8f0900d8be') succeeded ===
 2026/02/12 07:52:55 INFO mlflow.projects: === Run (ID '867476d70f85448681fbabb08e57e816') succeeded ===
 ...
 ...
+```
+
 
 ![pipeline-deployment-graph.png](pipeline-deployment-graph.png)
 
+<br>
+<br>
+<br>
 
+## Other Notes
 After running the pipeline successfully, go to W&B and tag the exported model as ``prod`` as
 we did in Exercise 13.
 
