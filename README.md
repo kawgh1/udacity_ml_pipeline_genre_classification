@@ -114,6 +114,8 @@ mlflow run . --env-manager=local
 ## Run this ML pipeline from a GitHub release
 After install the required dependencies above and or creating a new venv
 Create a new release based on this branch in GitHub
+> mlflow run [github URL] -v [version] -P ...
+
 Run:
 ```bash
 mlflow run -v 1.0.2  git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git
