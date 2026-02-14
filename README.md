@@ -144,7 +144,7 @@ wandb: Find logs at: wandb/run-20260214_142120-l1xghvoh/logs
 
 <br>
 
-![release-run.png](screenshots/release-run.png)
+![release-run-2.png](screenshots/release-run-2.png)
 
 <br>
 
