@@ -138,6 +138,8 @@ wandb: Find logs at: wandb/run-20260214_142120-l1xghvoh/logs
 2026/02/14 14:21:26 INFO mlflow.projects: === Run (ID '0618429d31954bf4aa3f74e111280112') succeeded ===
 ```
 
+[https://wandb.ai/krseven-j/remote_execution/runs/l1xghvoh](https://wandb.ai/krseven-j/remote_execution/runs/l1xghvoh)
+
 <br>
 <br>
 
