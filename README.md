@@ -114,7 +114,7 @@ mlflow run . --env-manager=local
 ## Run this ML pipeline from a GitHub release
 After install the required dependencies above and or creating a new venv
 Create a new release based on this branch in GitHub
-> mlflow run [github URL] -v [version] -P ...
+> mlflow run  -v [version] [github URL] -P ...
 
 Run:
 ```bash
