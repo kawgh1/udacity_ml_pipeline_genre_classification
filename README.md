@@ -143,6 +143,10 @@ wandb: Find logs at: wandb/run-20260214_142120-l1xghvoh/logs
 [https://wandb.ai/krseven-j/remote_execution/runs/l1xghvoh](https://wandb.ai/krseven-j/remote_execution/runs/l1xghvoh)
 
 <br>
+
+![ml-deployment-flow.png](ml-deployment-flow.png)
+
+<br>
 <br>
 
 ## Other Notes
