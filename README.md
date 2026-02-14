@@ -111,15 +111,19 @@ mlflow run . --env-manager=local
 <br>
 <br>
 
-## Run this as a release
+## Run this ML pipeline from a GitHub release
 After install the required dependencies above and or creating a new venv
 Create a new release based on this branch in GitHub
 Run:
 ```bash
-mlflow run -v 1.0.0  git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git -P hydra_options="main.project_name=remote_execution"   
+mlflow run -v 1.0.0  git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git
+-P hydra_options="main.project_name=remote_execution"   
 ```
 
 where `1.0.0` is the release tag. We also change the project name so it does not overwrite any existing projects in `wandb`.
+
+<br>
+<br>
 
 ## Other Notes
 After running the pipeline successfully, go to W&B and tag the exported model as ``prod`` as
