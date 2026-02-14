@@ -86,7 +86,7 @@ wandb:   7 of 7 files downloaded.
 
 ```
 
-![screenshot.png](screenshot.png)
+![screenshot.png](screenshots/screenshot.png)
 
 Then run it for `prod`
 
@@ -105,7 +105,7 @@ mlflow run . --env-manager=local
 ```
 
 
-![pipeline-deployment-graph.png](pipeline-deployment-graph.png)
+![pipeline-deployment-graph.png](screenshots/pipeline-deployment-graph.png)
 
 <br>
 <br>
@@ -144,7 +144,11 @@ wandb: Find logs at: wandb/run-20260214_142120-l1xghvoh/logs
 
 <br>
 
-![ml-deployment-flow.png](ml-deployment-flow.png)
+![release-run.png](screenshots/release-run.png)
+
+<br>
+
+![ml-deployment-flow.png](screenshots/ml-deployment-flow.png)
 
 <br>
 <br>
