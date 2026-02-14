@@ -116,11 +116,27 @@ After install the required dependencies above and or creating a new venv
 Create a new release based on this branch in GitHub
 Run:
 ```bash
-mlflow run -v 1.0.0  git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git
+mlflow run -v 1.0.2  git@github.com:kawgh1/udacity_ml_pipeline_genre_classification.git
 -P hydra_options="main.project_name=remote_execution"   
 ```
 
-where `1.0.0` is the release tag. We also change the project name so it does not overwrite any existing projects in `wandb`.
+where `1.0.2` is the release tag. We also change the project name so it does not overwrite any existing projects in `wandb`.
+
+<br>
+
+```
+2026-02-14 14:21:21,463 Downloading and reading test artifact
+2026-02-14 14:21:22,461 Extracting target from dataframe
+2026-02-14 14:21:22,462 Downloading and reading the exported model
+wandb:   7 of 7 files downloaded.  
+2026-02-14 14:21:24,339 Scoring
+2026-02-14 14:21:24,426 Computing confusion matrix
+wandb: 
+wandb: 🚀 View run sparkling-darling-16 at: https://wandb.ai/krseven-j/remote_execution/runs/l1xghvoh
+wandb: Find logs at: wandb/run-20260214_142120-l1xghvoh/logs
+2026/02/14 14:21:26 INFO mlflow.projects: === Run (ID 'd9a2d20fdb7c4f3c948b42ac629a3054') succeeded ===
+2026/02/14 14:21:26 INFO mlflow.projects: === Run (ID '0618429d31954bf4aa3f74e111280112') succeeded ===
+```
 
 <br>
 <br>
